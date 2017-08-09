@@ -1,6 +1,6 @@
 USE employees;
 
-SELECT COUNT(*)
+SELECT COUNT(*), gender
 FROM employees
 WHERE (first_name = 'Irena'
 	OR first_name = 'Vidya'
@@ -13,7 +13,7 @@ FROM employees
 WHERE last_name LIKE 'e%'
 ORDER BY last_name;
 
-SELECT DATEDIFF(CURDATE(), hire_date)
+SELECT CONCAT(last_name,', ',first_name) AS 'Name', DATEDIFF(CURDATE(), hire_date)/365 AS 'Years with Company'
 FROM employees
 WHERE birth_date like '%12-25'
 	AND hire_date BETWEEN '1990-01-01' AND '1999-12-31'
